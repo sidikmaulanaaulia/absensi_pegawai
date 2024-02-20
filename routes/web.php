@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\PegawaiController as AdminPegawaiController;
 use App\Http\Controllers\Admin\AbsensiController as AdminAbsensiController;
 use App\Http\Controllers\Admin\PenggunaController as AdminPenggunaController;
 use App\Http\Controllers\Admin\JabatanController as AdminJabatanController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\AbsensiController as UserAbsensiController;
 
@@ -23,14 +24,13 @@ use App\Http\Controllers\User\AbsensiController as UserAbsensiController;
 
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('auth.login');
 })->name('welcome');
 
 
 Route::middleware(['auth', 'check.role:admin'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('admin.dashboard');
+    //dashboard
+    Route::get('/dashboard', [AdminDashboardController::class, 'show'])->name('dashboard.show');
     //profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -74,8 +74,8 @@ Route::middleware(['auth', 'check.role:admin'])->group(function () {
 
 
     Route::middleware(['auth', 'check.role:user'])->group(function () {
-        Route::get('/dashboard', [UserDashboardController::class, 'show'])->name('dashboard.show');
-        Route::get('/absensi', [UserAbsensiController::class, 'show'])->name('absensi.show');
+        Route::get('/dashboard-user', [UserDashboardController::class, 'show'])->name('dashboard-user.show');
+        Route::get('/absensi-user', [UserAbsensiController::class, 'show'])->name('absensi-user.show');
     });
 
 

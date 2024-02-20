@@ -8,7 +8,7 @@
           <li class="sidebar-item">
             <a
               class="sidebar-link waves-effect waves-dark sidebar-link"
-              href="/dashboard"
+              href="/dashboard-user"
               aria-expanded="false"
               ><i class="mdi mdi-view-dashboard"></i
               ><span class="hide-menu">Dashboard</span></a
@@ -17,7 +17,7 @@
           <li class="sidebar-item">
             <a
               class="sidebar-link waves-effect waves-dark sidebar-link"
-              href="/absensi"
+              href="/absensi-user"
               aria-expanded="false"
               ><i class="mdi mdi-chart-bar"></i
               ><span class="hide-menu">Absensi</span></a
@@ -36,18 +36,6 @@
                 <a href="authentication-login.html" class="sidebar-link"
                   ><i class="mdi mdi-account"></i
                   ><span class="hide-menu">Profile</span></a
-                >
-              </li>
-              <li class="sidebar-item">
-                <a href="authentication-register.html" class="sidebar-link"
-                  ><i class="mdi mdi-wallet"></i
-                  ><span class="hide-menu"> My Balance </span></a
-                >
-              </li>
-              <li class="sidebar-item">
-                <a href="authentication-register.html" class="sidebar-link"
-                  ><i class="mdi mdi-email"></i
-                  ><span class="hide-menu">Inbox</span></a
                 >
               </li>
               <form action="/logout" method="post">

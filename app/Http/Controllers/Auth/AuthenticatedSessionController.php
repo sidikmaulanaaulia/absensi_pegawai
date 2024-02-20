@@ -33,9 +33,9 @@ class AuthenticatedSessionController extends Controller
 
         // Memeriksa level pengguna dan mengarahkan sesuai ke halaman dashboard yang sesuai
         if ($user->level === 'admin') {
-            return redirect()->route('pengguna.show'); // Ganti 'admin.dashboard' dengan nama route untuk dashboard admin
+            return redirect()->route('dashboard.show'); // Ganti 'admin.dashboard' dengan nama route untuk dashboard admin
         } else {
-            return redirect()->route('dashboard.show'); // Ganti 'user.dashboard' dengan nama route untuk dashboard user
+            return redirect()->route('dashboard-user.show'); // Ganti 'user.dashboard' dengan nama route untuk dashboard user
         }
     }
 

@@ -15,7 +15,9 @@ class AbsensiController extends Controller
     $user = Auth::user(); // Mengambil informasi pengguna yang telah login
     $dataPegawai = $user->no_induk_pegawai; // Mengambil nomor induk pegawai dari pengguna
 
-    $data = Absensi::where('no_induk_pegawai', $dataPegawai)->get();
+    $data = Absensi::where('no_induk_pegawai', $dataPegawai)
+               ->orderBy('tanggal', 'desc')
+               ->get();
 
     return view('user.absensi', compact('data'));
 }
