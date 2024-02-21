@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="card mt-3">
             <!-- Nav tabs -->
-            <h3 class="text-center">Data Absensi {{ auth()->user()->name }}</h3>
+            <h3 class="text-center">Data Absensi {{ Auth()->user()->name }}</h3>
             <div class="nav nav-tabs dropdown-menu" id="nav-tab" role="tablist">
 
             </div>

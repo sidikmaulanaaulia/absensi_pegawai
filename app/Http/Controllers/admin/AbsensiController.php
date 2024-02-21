@@ -34,8 +34,8 @@ class AbsensiController extends Controller
         ]);
 
         $waktu_sekarang = Carbon::now();
-        $mulai_absensi = Carbon::createFromTime(7, 0, 0); // Waktu mulai absensi pukul 07:00:00
-        $berakhir_absensi = Carbon::createFromTime(8, 0, 0); // Waktu berakhir absensi pukul 08:00:00
+        $mulai_absensi = Carbon::createFromTime(07, 0, 0); // Waktu mulai absensi pukul 07:00:00
+        $berakhir_absensi = Carbon::createFromTime(18, 0, 0); // Waktu berakhir absensi pukul 08:00:00
 
         if ($waktu_sekarang->between($mulai_absensi, $berakhir_absensi)) {
             $tanggal = $waktu_sekarang->toDateString();
@@ -74,8 +74,8 @@ class AbsensiController extends Controller
         ]);
 
         $waktu_sekarang = Carbon::now();
-        $mulai_absensi = Carbon::createFromTime(5, 0, 0); // Waktu mulai absensi pukul 07:00:00
-        $berakhir_absensi = Carbon::createFromTime(6, 0, 0); // Waktu berakhir absensi pukul 08:00:00
+        $mulai_absensi = Carbon::createFromTime(14, 0, 0); // Waktu mulai absensi pukul 07:00:00
+        $berakhir_absensi = Carbon::createFromTime(18, 0, 0); // Waktu berakhir absensi pukul 08:00:00
         if ($waktu_sekarang->between($mulai_absensi, $berakhir_absensi)){
         $waktu = Carbon::now()->toTimeString();
 

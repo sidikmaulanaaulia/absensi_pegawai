@@ -29,7 +29,7 @@
               class="sidebar-link waves-effect waves-dark sidebar-link"
               href="/jabatan"
               aria-expanded="false"
-              ><i class="mdi mdi-chart-bar"></i
+              ><i class="mdi mdi-chart-histogram"></i
               ><span class="hide-menu">Jabatan</span></a
             >
           </li>
@@ -38,7 +38,7 @@
               class="sidebar-link waves-effect waves-dark sidebar-link"
               href="/absensi"
               aria-expanded="false"
-              ><i class="mdi mdi-chart-bar"></i
+              ><i class="mdi mdi-clipboard-account"></i
               ><span class="hide-menu">Absensi</span></a
             >
           </li>
