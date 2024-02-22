@@ -1,5 +1,5 @@
 @extends('admin.include.header')
 @section('container')
 
-<h1>ashdjkasjhd</h1>
+<h3>Selamat datang {{ auth()->user()->name }}</h3>
 @endsection
