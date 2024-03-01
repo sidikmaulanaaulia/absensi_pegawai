@@ -64,7 +64,7 @@ class PegawaiController extends Controller
     }
 
     public function edit($slug){
-        $data = Pegawai::where('slug',$slug)->first();
+        $data = Pegawai::findBySlug($slug);
         $jabatan = Jabatan::all();
         return view('admin.pegawai.edit', compact('data','jabatan'));
 

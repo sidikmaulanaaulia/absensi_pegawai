@@ -35,7 +35,7 @@ class JabatanController extends Controller
     }
 
     public function edit($slug){
-        $data = Jabatan::where('slug',$slug)->first();
+        $data = Jabatan::findBySlug($slug);
 
         return view('admin.jabatan.edit',compact('data'));
     }
@@ -51,8 +51,7 @@ class JabatanController extends Controller
 
         $data->update($request->all());
 
-        // Perbarui slug dengan yang baru setelah pembaruan
-        $slug_baru = Str::slug($request->nama); // pastikan Anda telah mengimpor namespace untuk Str
+        $slug_baru = Str::slug($request->nama);
         $data->update(['slug' => $slug_baru]);
 
         return Redirect::route('jabatan.edit', $slug_baru)->with('success', 'success');

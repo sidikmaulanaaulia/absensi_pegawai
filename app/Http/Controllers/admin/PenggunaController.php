@@ -54,7 +54,7 @@ class PenggunaController extends Controller
     }
 
     public function edit($slug){
-        $data = User::where('slug',$slug)->first();
+        $data = User::findBySlug($slug);
         return view('admin.pengguna.edit', compact('data'));
 
     }

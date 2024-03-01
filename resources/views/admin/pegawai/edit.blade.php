@@ -34,7 +34,7 @@
                             id="formGroupExampleInput3" value="{{ $data->alamat }}" required>
                     </div>
                     <div class="mb-3">
-                        <label for="formGroupExampleInput5" class="form-label">tanggal_lahir</label>
+                        <label for="formGroupExampleInput5" class="form-label">Tanggal Lahir</label>
                         <input type="date" class="form-control form-control-sm " name="tanggal_lahir"
                             id="formGroupExampleInput5" value="{{ $data->tanggal_lahir }}" required>
                     </div>
