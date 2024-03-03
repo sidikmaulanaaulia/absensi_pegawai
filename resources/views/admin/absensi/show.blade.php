@@ -37,24 +37,29 @@
                                             <td>{{ $item->no_induk_pegawai }}</td>
                                             <td>{{ $item->tanggal }}</td>
                                             @if ($item->status_kehadiran == 'HADIR')
-                                            <td>{{ $item->waktu_masuk }}</td>
-                                            <td>{{ $item->waktu_keluar }}</td>
+                                                <td>{{ $item->waktu_masuk }}</td>
+                                                <td>{{ $item->waktu_keluar }}</td>
                                             @else
-                                            <td></td>
-                                            <td></td>
+                                                <td></td>
+                                                <td></td>
                                             @endif
                                             <td>{{ $item->status_kehadiran }}</td>
                                             <td>
-                                                <a class="btn btn-danger btn-sm"
-                                                    href="/absensi-delete/{{ $item->id }}">                                            <span class="material-icons">
-                                                        <span class="material-icons">
-                                                            delete
-                                                          </span></a>
-                                                <a class="btn btn-success btn-sm text-white mt-3"
-                                                    href="/absensi-edit/{{ $item->id }}">                                            <span class="material-icons">
+                                                <a class="btn btn-success btn-sm text-white" href="/absensi-edit/{{ $item->slug }}">
+                                                    <span class="material-icons">
                                                         <span class="material-icons">
                                                             update
-                                                          </span></a>
+                                                        </span></a>
+
+                                                <form class="delete-form" action="/absensi-delete/{{ $item->id }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button"
+                                                        class="btn btn-danger btn-sm delete-confirm"> <span class="material-icons">
+                                                            delete
+                                                        </span></button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -82,4 +87,42 @@
     <!-- ============================================================== -->
     <!-- ============================================================== -->
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var deleteForms = document.querySelectorAll('.delete-form');
+
+            deleteForms.forEach(function(form) {
+                var deleteButton = form.querySelector('.delete-confirm');
+
+                deleteButton.addEventListener('click', function() {
+                    Swal.fire({
+                        title: 'Apakah anda ingin menghapus?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Yes!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            var url = form.getAttribute('action');
+                            var xhr = new XMLHttpRequest();
+                            xhr.open('DELETE', url, true);
+                            xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
+                            xhr.onload = function() {
+                                if (xhr.status === 200) {
+                                    window.location.reload();
+                                } else {
+                                    console.error(xhr.responseText);
+                                }
+                            };
+                            xhr.send();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 @endsection

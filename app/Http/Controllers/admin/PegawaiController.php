@@ -90,11 +90,11 @@ class PegawaiController extends Controller
         return Redirect::route('pegawai.edit', $slug)->with('success', 'success');
     }
 
-    public function destroy($slug){
+    public function destroy($id){
 
-        $data = Pegawai::where('slug',$slug)->first();
+        $data = Pegawai::find($id);
         $data->delete();
-        return Redirect::route('pegawai.show', $slug)->with('success', 'success');
+        return response()->json(['success' => 'data berhasil di hapus',200]);
 
     }
 
