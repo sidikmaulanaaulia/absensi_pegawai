@@ -61,12 +61,12 @@ class JabatanController extends Controller
 
 }
 
-   public function destroy($slug){
+   public function destroy($id){
 
-    $data = Jabatan::where('slug',$slug)->first();
+    $data = Jabatan::find($id);
     $data->delete();
 
-    return Redirect::route('jabatan.show')->with('success','success');
+    return response()->json(['success' => 'data berhasil di hapus'],200);
    }
 
 

@@ -74,11 +74,11 @@ class PenggunaController extends Controller
         return Redirect::route('absensi.edit', $id)->with('success', 'success');
     }
 
-    public function destroy($slug){
+    public function destroy($id){
 
-        $data = User::where('slug',$slug)->first();
+        $data = User::find($id);
         $data->delete();
-        return Redirect::route('pengguna.show')->with('success', 'success');
+        return response()->json(['message' => 'Data berhasil di hapus',200]);
 
     }
 

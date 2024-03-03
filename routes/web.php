@@ -41,7 +41,7 @@ Route::middleware(['auth', 'check.role:admin'])->group(function () {
     Route::get('/pegawai-tambah', [AdminPegawaiController::class, 'create'])->name('pegawai.create');
     Route::get('/pegawai-edit/{slug}', [AdminPegawaiController::class, 'edit'])->name('pegawai.edit');
     Route::post('/pegawai-edit/{slug}', [AdminPegawaiController::class, 'update'])->name('pegawai.update');
-    Route::get('/pegawai-delete/{slug}', [AdminPegawaiController::class, 'destroy'])->name('pegawai.destroy');
+    Route::delete('/pegawai-delete/{id}', [AdminPegawaiController::class, 'destroy'])->name('pegawai.destroy');
     Route::post('/pegawai-tambah', [AdminPegawaiController::class, 'store'])    ->name('pegawai.store');
     //absensi
     Route::get('/absensi', [AdminAbsensiController::class, 'show'])->name('absensi.show');
@@ -51,7 +51,7 @@ Route::middleware(['auth', 'check.role:admin'])->group(function () {
     Route::post('/absensi-exit', [AdminAbsensiController::class, 'exit'])->name('absensi.exit');
     Route::get('/absensi-edit/{id}', [AdminAbsensiController::class, 'edit'])->name('absensi.edit');
     Route::post('/absensi-edit/{id}', [AdminAbsensiController::class, 'update'])->name('absensi.update');
-    Route::get('/absensi-delete/{id}', [AdminAbsensiController::class, 'destroy'])->name('absensi.destroy');
+    Route::delete('/absensi-delete/{id}', [AdminAbsensiController::class, 'destroy'])->name('absensi.destroy');
 
     //pengguna
     Route::get('/pengguna', [AdminPenggunaController::class, 'show'])->name('pengguna.show');
@@ -59,7 +59,7 @@ Route::middleware(['auth', 'check.role:admin'])->group(function () {
     Route::post('/pengguna-tambah', [AdminPenggunaController::class, 'store'])->name('pengguna.store');
     Route::get('/pengguna-edit/{slug}', [AdminPenggunaController::class, 'edit'])->name('pengguna.edit');
     Route::post('/pengguna-update/{slug}', [AdminPenggunaController::class, 'update'])->name('pengguna.update');
-    Route::get('/pengguna-delete/{slug}', [AdminPenggunaController::class, 'destroy'])->name('pengguna.destroy ');
+    Route::delete('/pengguna-delete/{id}', [AdminPenggunaController::class, 'destroy'])->name('pengguna.destroy ');
 
     //jabatan
      Route::get('/jabatan', [AdminJabatanController::class, 'show'])->name('jabatan.show');
@@ -67,7 +67,7 @@ Route::middleware(['auth', 'check.role:admin'])->group(function () {
      Route::post('/jabatan-tambah', [AdminJabatanController::class, 'store'])->name('jabatan.store');
      Route::get('/jabatan-edit/{slug}', [AdminJabatanController::class, 'edit'])->name('jabatan.edit');
      Route::post('/jabatan-edit/{slug}', [AdminJabatanController::class, 'update'])->name('jabatan.update');
-     Route::get('/jabatan-delete/{slug}', [AdminJabatanController::class, 'destroy'])->name('jabatan.destroy');
+     Route::delete('/jabatan-delete/{id}', [AdminJabatanController::class, 'destroy'])->name('jabatan.destroy');
 
 
     });

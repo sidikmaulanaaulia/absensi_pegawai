@@ -112,7 +112,7 @@ class AbsensiController extends Controller
 
         $data = Absensi::find($id);
         $data->delete();
-        return Redirect::route('absensi.show', $id)->with('success', 'success');
+        return response()->json(['success' => 'data berhasil di hapus'],200);
 
     }
 
